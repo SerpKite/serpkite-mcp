@@ -56,6 +56,10 @@ Add to `.vscode/mcp.json`. The password input keeps the API key out of the commi
 }
 ```
 
+### Cline
+
+Follow [llms-install.md](llms-install.md) for Cline's remote connection configuration.
+
 ### Claude Desktop and stdio clients
 
 With Node.js installed, use the third-party [mcp-remote](https://www.npmjs.com/package/mcp-remote) bridge in your client's MCP configuration:
