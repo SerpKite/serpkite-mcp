@@ -1,5 +1,7 @@
 # SerpKite MCP
 
+[![SerpKite MCP connector – tool definition quality and endpoint health on Glama](https://glama.ai/mcp/connectors/io.github.SerpKite/serpkite/badges/score.svg)](https://glama.ai/mcp/connectors/io.github.SerpKite/serpkite)
+
 Give AI agents Google search and public web content through the [SerpKite](https://serpkite.com) remote Model Context Protocol server. Maintained by the SerpKite team.
 
 This repository contains connection examples and registry metadata for the hosted service. The API implementation is proprietary; the documentation and configuration in this repository are MIT licensed.
