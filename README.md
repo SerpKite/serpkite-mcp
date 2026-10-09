@@ -37,6 +37,10 @@ Add to `~/.cursor/mcp.json` or your project's `.cursor/mcp.json`:
 }
 ```
 
+### Cursor plugin
+
+This repository is also a Cursor plugin (`.cursor-plugin/plugin.json`, `mcp.json`, a web-research skill and a rule). Set `SERPKITE_API_KEY` in your environment before starting Cursor; the plugin reads it through `${env:SERPKITE_API_KEY}` and never stores the key.
+
 ### VS Code
 
 Add to `.vscode/mcp.json`. The password input keeps the API key out of the committed file:

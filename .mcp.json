@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "serpkite": {
+      "url": "https://api.serpkite.com/v1/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:SERPKITE_API_KEY}"
+      }
+    }
+  }
+}

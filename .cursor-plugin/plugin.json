@@ -1,0 +1,16 @@
+{
+  "name": "serpkite",
+  "displayName": "SerpKite",
+  "version": "1.0.0",
+  "description": "Google search, news, maps, scholar, shopping and public webpages for AI agents through SerpKite's hosted MCP server.",
+  "author": {
+    "name": "SerpKite",
+    "email": "support@serpkite.com",
+    "url": "https://serpkite.com"
+  },
+  "homepage": "https://serpkite.com/docs/mcp",
+  "repository": "https://github.com/SerpKite/serpkite-mcp",
+  "license": "MIT",
+  "keywords": ["search", "google", "serp", "web-search", "news", "scholar", "webpage", "markdown", "mcp"],
+  "logo": "assets/logo.svg"
+}

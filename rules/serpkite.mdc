@@ -1,0 +1,6 @@
+---
+description: Use SerpKite MCP tools for current web information
+alwaysApply: false
+---
+
+When the answer depends on current or external web information, use the `serpkite` MCP tools (`search`, `news`, `webpage`) instead of guessing. Cite the source URLs. Keep tool calls minimal because each call uses the user's SerpKite credits.
