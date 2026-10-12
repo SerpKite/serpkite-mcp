@@ -10,19 +10,32 @@ This repository contains connection examples and registry metadata for the hoste
 
 - **Endpoint:** `https://api.serpkite.com/v1/mcp`
 - **Transport:** stateless Streamable HTTP
-- **Authentication:** `Authorization: Bearer <your-api-key>`
+- **Authentication:** OAuth 2.1 sign-in (scope `mcp`), or `Authorization: Bearer <your-api-key>`
 - **Protocols:** `2025-06-18`, `2025-03-26`, `2024-11-05`
 
-Get an API key at [app.serpkite.com](https://app.serpkite.com). Read the [pricing](https://serpkite.com/pricing) and [MCP documentation](https://serpkite.com/docs/mcp). Credits never expire; failed and empty searches are free. Set a dedicated key's monthly credit limit to control agent spending.
+Read the [pricing](https://serpkite.com/pricing) and [MCP documentation](https://serpkite.com/docs/mcp). Credits never expire; failed and empty searches are free. No SerpKite npm MCP package is required.
 
-OAuth is planned. Clients must currently support custom headers or use the stdio bridge below. No SerpKite npm MCP package is required.
+### OAuth
+
+The server implements the [MCP authorization spec](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization). Clients that support MCP OAuth (Claude and ChatGPT connectors, Claude Code) need only the URL: they open a SerpKite sign-in page, where you approve the connection.
+
+- Protected resource metadata: [`https://api.serpkite.com/.well-known/oauth-protected-resource/v1/mcp`](https://api.serpkite.com/.well-known/oauth-protected-resource/v1/mcp)
+- Authorization server: `https://app-api.serpkite.com` ([metadata](https://app-api.serpkite.com/.well-known/oauth-authorization-server))
+- Dynamic client registration or a Client ID Metadata Document, authorization code with PKCE (`S256`), scopes `mcp` and `offline_access`
+
+An approved connection runs as an API key named after the app, such as `Claude (OAuth)`, on your **API keys** page. Give it a monthly credit limit, or revoke it to disconnect the app.
+
+### API key
+
+Clients without MCP OAuth send an API key from [app.serpkite.com](https://app.serpkite.com) in the `Authorization` header, as in the examples below. Set a dedicated key's monthly credit limit to control agent spending.
 
 ### Claude Code
 
 ```bash
-claude mcp add --transport http serpkite https://api.serpkite.com/v1/mcp \
-  --header "Authorization: Bearer $SERPKITE_API_KEY"
+claude mcp add --transport http serpkite https://api.serpkite.com/v1/mcp
 ```
+
+Run `/mcp`, pick `serpkite` and choose **Authenticate** to sign in with OAuth. To use an API key instead, add `--header "Authorization: Bearer $SERPKITE_API_KEY"`.
 
 ### Cursor
 
@@ -82,7 +95,11 @@ With Node.js installed, use the third-party [mcp-remote](https://www.npmjs.com/p
 }
 ```
 
-Keep API keys out of source control. ChatGPT connectors that only support OAuth or no authentication cannot currently connect directly.
+Keep API keys out of source control.
+
+### ChatGPT
+
+With developer mode enabled, create a connector with the URL `https://api.serpkite.com/v1/mcp` and OAuth authentication. ChatGPT registers itself and sends you to the SerpKite approval page.
 
 ## Tools
 
