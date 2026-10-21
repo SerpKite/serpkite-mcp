@@ -108,6 +108,7 @@ With developer mode enabled, create a connector with the URL `https://api.serpki
 | `search` | Google web results, answers, knowledge graph and related questions |
 | `news` | Google News articles |
 | `maps` | Places, ratings, addresses and coordinates |
+| `place` | One place's details: address, hours, phones, time zone (by `place_id`, `cid` or `fid` from `maps`) |
 | `scholar` | Academic papers, citations and PDF links |
 | `patents` | Patent search |
 | `shopping` | Products, prices and merchants |
@@ -138,7 +139,7 @@ curl https://api.serpkite.com/v1/mcp \
   -d '{"jsonrpc":"2.0","id":2,"method":"tools/list"}'
 ```
 
-The remote endpoint and all fourteen tool names were verified on 2026-10-05.
+The remote endpoint and all fifteen tool names were verified on 2026-10-21.
 
 ## Support
 

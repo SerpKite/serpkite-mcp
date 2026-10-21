@@ -16,6 +16,7 @@ If the server reports 401, the variable is missing or the key is wrong. Ask the 
 - `search`: Google web results. Start here for general questions.
 - `news`: recent articles. Use for anything time-sensitive.
 - `images`, `videos`, `shopping`, `maps`: vertical results.
+- `place`: one place's full details, using the `place_id`, `cid` or `fid` from a `maps` result.
 - `scholar`, `patents`: academic papers and patents.
 - `autocomplete`: query suggestions.
 - `webpage`: one public URL as Markdown. Use it to read a result in full.
