@@ -1,6 +1,6 @@
 ---
 name: serpkite-web-research
-description: Search Google and read public webpages through the SerpKite MCP server. Use when a task needs current web results, news, maps, scholar or patent results, shopping results, or the Markdown text of a public page.
+description: Search Google, read public webpages, get cited answers and run deep research through the SerpKite MCP server. Use when a task needs current web results, news, maps, scholar or patent results, shopping results, the Markdown text or structured JSON of a public page, a cited answer, or a researched report.
 ---
 
 # SerpKite web research
@@ -20,7 +20,9 @@ If the server reports 401, the variable is missing or the key is wrong. Ask the 
 - `scholar`, `patents`: academic papers and patents.
 - `autocomplete`: query suggestions.
 - `webpage`: one public URL as Markdown. Use it to read a result in full.
-- `extract`, `map`, `crawl`, `crawl_result`: multi-page site reads. `crawl` is asynchronous; poll `crawl_result`.
+- `answer`: a short answer to a question from live Google results, with numbered citations. `depth=fast` uses only the result page; `standard` also reads the top pages.
+- `extract`, `map`, `crawl`, `crawl_result`: multi-page site reads. `extract` can also return query passages, a summary or JSON matching an `output_schema`. `crawl` is asynchronous; poll `crawl_result`.
+- `research`, `research_result`: asynchronous deep research (planned searches, page reading, a cited Markdown report). Start with `research`, then poll `research_result`. Use it only when a multi-source report is worth the higher cost.
 
 ## Guidelines
 
