@@ -2,7 +2,7 @@
 
 [![SerpKite MCP connector – tool definition quality and endpoint health on Glama](https://glama.ai/mcp/connectors/io.github.SerpKite/serpkite/badges/score.svg)](https://glama.ai/mcp/connectors/io.github.SerpKite/serpkite)
 
-Give AI agents Google search and public web content through the [SerpKite](https://serpkite.com) remote Model Context Protocol server. Maintained by the SerpKite team.
+Give AI agents Google search, public web content, cited answers and deep research through the [SerpKite](https://serpkite.com) remote Model Context Protocol server. Maintained by the SerpKite team.
 
 This repository contains connection examples and registry metadata for the hosted service. The API implementation is proprietary; the documentation and configuration in this repository are MIT licensed.
 
@@ -116,12 +116,15 @@ With developer mode enabled, create a connector with the URL `https://api.serpki
 | `videos` | Video search |
 | `autocomplete` | Query suggestions |
 | `webpage` | Public HTML or PDF to Markdown |
-| `extract` | Read multiple URLs, optionally select passages by query |
+| `answer` | Answer a question from live Google results with numbered citations |
+| `extract` | Read up to 20 URLs; optional query passages, summary or JSON matching your schema |
 | `map` | Discover a site's URLs |
 | `crawl` | Start a crawl of public site pages |
 | `crawl_result` | Read crawl status and results |
+| `research` | Start an async deep-research task that ends in a cited Markdown report |
+| `research_result` | Read research status and the report |
 
-Tool results are LLM-ready Markdown. Pricing follows the matching REST endpoints. Only public, logged-out pages are fetched. See [tool inputs and costs](https://serpkite.com/docs/mcp#tools).
+Tool results are LLM-ready Markdown. Pricing follows the matching REST endpoints; a failed answer or AI step is free, and research is charged only when the report is written. Only public, logged-out pages are fetched. See [tool inputs and costs](https://serpkite.com/docs/mcp#tools).
 
 ## Verify the connection
 
@@ -139,7 +142,7 @@ curl https://api.serpkite.com/v1/mcp \
   -d '{"jsonrpc":"2.0","id":2,"method":"tools/list"}'
 ```
 
-The remote endpoint and all fifteen tool names were verified on 2026-10-21.
+The remote endpoint and all eighteen tool names were verified on 2026-10-24.
 
 ## Support
 
