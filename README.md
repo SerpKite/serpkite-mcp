@@ -2,7 +2,7 @@
 
 [![SerpKite MCP connector – tool definition quality and endpoint health on Glama](https://glama.ai/mcp/connectors/io.github.SerpKite/serpkite/badges/score.svg)](https://glama.ai/mcp/connectors/io.github.SerpKite/serpkite)
 
-Give AI agents Google search, public web content, cited answers and deep research through the [SerpKite](https://serpkite.com) remote Model Context Protocol server. Maintained by the SerpKite team.
+Give AI agents Google search, public web content, cited answers, deep research and the answers of AI assistants (ChatGPT, Gemini, Copilot Search, Google AI Mode, Brave) through the [SerpKite](https://serpkite.com) remote Model Context Protocol server. Maintained by the SerpKite team.
 
 This repository contains connection examples and registry metadata for the hosted service. The API implementation is proprietary; the documentation and configuration in this repository are MIT licensed.
 
@@ -115,6 +115,11 @@ With developer mode enabled, create a connector with the URL `https://api.serpki
 | `images` | Image search |
 | `videos` | Video search |
 | `autocomplete` | Query suggestions |
+| `chatgpt` | Ask ChatGPT as a logged-out user: its answer with cited sources, products and places |
+| `gemini` | Ask Google Gemini as a logged-out user: its answer with the sources it grounded on |
+| `copilot` | Ask Microsoft Copilot Search on Bing: its answer with cited sources and products |
+| `ai_mode` | Ask Google AI Mode: its answer with cited sources and products |
+| `brave_ai` | Ask Brave Search's AI answer: cited sources and the searches it ran |
 | `webpage` | Public HTML or PDF to Markdown |
 | `answer` | Answer a question from live Google results with numbered citations |
 | `extract` | Read up to 20 URLs; optional query passages, summary or JSON matching your schema |
@@ -124,7 +129,7 @@ With developer mode enabled, create a connector with the URL `https://api.serpki
 | `research` | Start an async deep-research task that ends in a cited Markdown report |
 | `research_result` | Read research status and the report |
 
-Tool results are LLM-ready Markdown. Pricing follows the matching REST endpoints; a failed answer or AI step is free, and research is charged only when the report is written. Only public, logged-out pages are fetched. See [tool inputs and costs](https://serpkite.com/docs/mcp#tools).
+Tool results are LLM-ready Markdown. Pricing follows the matching REST endpoints; a failed answer, assistant answer or AI step is free, and research is charged only when the report is written. Only public, logged-out pages are fetched; the assistant tools take a `prompt` and an optional `track` list of brands or domains to check the answer for. See [tool inputs and costs](https://serpkite.com/docs/mcp#tools).
 
 ## Verify the connection
 
@@ -142,7 +147,7 @@ curl https://api.serpkite.com/v1/mcp \
   -d '{"jsonrpc":"2.0","id":2,"method":"tools/list"}'
 ```
 
-The remote endpoint and all eighteen tool names were verified on 2026-10-24.
+The remote endpoint and all 23 tool names were verified on 2026-10-29.
 
 ## Support
 

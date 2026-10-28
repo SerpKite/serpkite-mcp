@@ -1,6 +1,6 @@
 ---
 name: serpkite-web-research
-description: Search Google, read public webpages, get cited answers and run deep research through the SerpKite MCP server. Use when a task needs current web results, news, maps, scholar or patent results, shopping results, the Markdown text or structured JSON of a public page, a cited answer, or a researched report.
+description: Search Google, read public webpages, get cited answers and run deep research through the SerpKite MCP server. Use when a task needs current web results, news, maps, scholar or patent results, shopping results, the Markdown text or structured JSON of a public page, a cited answer, a researched report, or what an AI assistant (ChatGPT, Gemini, Copilot, Google AI Mode, Brave) answers to a prompt.
 ---
 
 # SerpKite web research
@@ -22,6 +22,7 @@ If the server reports 401, the variable is missing or the key is wrong. Ask the 
 - `webpage`: one public URL as Markdown. Use it to read a result in full.
 - `answer`: a short answer to a question from live Google results, with numbered citations. `depth=fast` uses only the result page; `standard` also reads the top pages.
 - `extract`, `map`, `crawl`, `crawl_result`: multi-page site reads. `extract` can also return query passages, a summary or JSON matching an `output_schema`. `crawl` is asynchronous; poll `crawl_result`.
+- `chatgpt`, `gemini`, `copilot`, `ai_mode`, `brave_ai`: ask that AI assistant a `prompt` as a logged-out user and get its answer with the sources it cited. Add `track` (brands or domains) to check whether each is mentioned or cited. Use them for AI-visibility checks, not for general questions; they cost 2 to 5 credits and take 1 to 40 seconds.
 - `research`, `research_result`: asynchronous deep research (planned searches, page reading, a cited Markdown report). Start with `research`, then poll `research_result`. Use it only when a multi-source report is worth the higher cost.
 
 ## Guidelines
